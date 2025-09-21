@@ -15,6 +15,11 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) =>{
             error: err.message
         })
     }
+
+    return res.status(500).json({
+        status:'error',
+        message: 'Erro interno do servidor.'
+    })
 })
 
 app.listen(3333, () => console.log("Servidor ON!"))
